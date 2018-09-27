@@ -110,9 +110,9 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-2"></div>
-            <label for="interestID" class="col-sm-2 col-form-label">Interest</label>
+            <label for="interestID" class="col-sm-2 col-form-label">Area of Study</label>
             <div class="col-sm-4">
-                <select class="form-control" id="interestID" name="interest">
+                <select class="form-control" id="Area-Of-StudyID" name="Area-Of-Study">
                     <option value="">--Select Interested Area of Study--</option>
                 </select>
             </div>
@@ -134,7 +134,7 @@
         //alert( $( "#college" ).val() );
         $.getJSON('https://external.spokane.edu/REST/API/SampleData', function (data) {
             var areaOfStudy = data.data.AreaOfStudy;
-            $('#interestID').html('');
+            $('#Area-Of-StudyID').html('');
             var options = '';
             options += '<option value="Select">--Select Interested Area of Study--</option>';
             for (var i = 0; i < areaOfStudy.length; i++) {
@@ -143,7 +143,7 @@
                     options += '<option value="' + eachArea.Title + '">' + eachArea.Title + '</option>';
             }
 
-            $('#interestID').append(options);
+            $('#Area-Of-StudyID').append(options);
         });
     });
 
