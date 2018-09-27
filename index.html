@@ -128,6 +128,7 @@
 </div>
 <div id="footer"></div>
 <script>
+    //Populate corresponding area of study when college is selected
     $( "#collegeID" ).change(function() {
         var selectedCollege = $( "#collegeID" ).val();
         //alert( $( "#college" ).val() );
@@ -146,7 +147,7 @@
         });
     });
 
-
+    //function to validate email
     function validateEmail(email){
         var reg = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
         return reg.test(email);
