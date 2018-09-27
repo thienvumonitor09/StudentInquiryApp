@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(function(){
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+</head>
+<body>
+<div id="header"></div>
+<div class="container">
+    <!--
+    <h2>Basic Card</h2>
+    <div class="card text-white bg-success border-success mb-3" style="max-width: 18rem;">
+        <div class="card-body" id="results"></div>
+    </div>
+
+    <div class="card border-success mb-3" style="max-width: 18rem;">
+        <div class="card-body text-success">
+            <h5 class="card-title">Success card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+    </div>
+    -->
+    <div class="card text-white bg-success mb-3" style="padding: 2%;margin: 2%">
+        <div class="card-header"><h1>Thanh you!</h1></div>
+        <div class="card-body">
+            <h5 class="card-title">Your information has been submitted successfully!</h5>
+            <p class="card-text" id="results" style="padding-left: 10%"></p>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="footer"></div>
+
+
+</body>
+<!-- <div id="results"></div> -->
+<script type = "text/javascript">
+    console.log(sessionStorage.getItem("fieldStrings"));
+    var fieldStrings = sessionStorage.getItem("fieldStrings");
+    var fieldStringArr = fieldStrings.split(" ");
+    fieldStringArr.forEach(function(fieldString) {
+        //$("#results").append(convertString(fieldString) +"<br/>");
+        var fieldName = convertString(fieldString);
+        var fieldValue = sessionStorage.getItem(fieldString);
+        if(fieldName == "College" && fieldValue == "SCC")
+            fieldValue = "Spokane Community College";
+        else if(fieldName == "College" && fieldValue == "SFCC")
+            fieldValue = "Spokane Falls Community College";
+        $("#results").append("<b>"+ fieldName + " : </b>" + fieldValue + "<br/>");
+    });
+
+    function convertString(nameString) {
+        var res = "";
+        nameString.split("-").forEach(function(element){
+            res += element+" ";
+        });
+        return res.trim();
+    }
+</script>
+
+</html>
+

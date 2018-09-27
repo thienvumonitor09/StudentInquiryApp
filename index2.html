@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="./scripts/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+    <script>
+
+
+        $(document).ready(function(){
+            $("button").click(function(){
+                var x = $("form").serializeArray();
+                var fieldStrings = "";
+                $.each(x, function(i, field){
+                    $("#results").append(field.name + ":" + field.value + " ");
+                    fieldStrings += field.name +" ";
+                    sessionStorage.setItem(field.name+"",field.value+"");
+                });
+                sessionStorage.setItem("fieldStrings",fieldStrings.trim());
+                $( "form" ).submit();
+            });
+        });
+
+    </script>
+</head>
+<div id="header"></div>
+<body>
+<div class="container">
+    <form action="./confirmation_page.html" method="post">
+        First name:
+        <input type="text" name="First-Name"><br/>
+        Middle Initial:
+        <input type="text" name="Middle-Initial"> <br/>
+        Last Name:
+        <input type="text" name="Last-Name"> <br/>
+        City:
+        <input type="text" name="City"><br>
+        State:
+        <input type="text" name="State"><br>
+        Zip Code:
+        <input type="text" name="Zip-Code"><br>
+        Phone:
+        <input type="text" name="Phone"><br>
+        Email:
+        <input type="text" name="Email"><br>
+        College:
+        <select id="collegeID" name="College">
+            <option value="">--Select College--</option>
+            <option value="SCC">Spokane Community College</option>
+            <option value="SFCC">Spokane Fall Community College</option>
+        </select>
+
+        <br/>
+        Interest:
+        <select id="interestID" name="Interest"></select>
+        <br/>
+
+        <button>Submit</button>
+    </form>
+
+
+
+
+
+</div>
+
+
+
+
+
+</body>
+
+<script src="./scripts/scripts.js"></script>
+
+</html>
+
